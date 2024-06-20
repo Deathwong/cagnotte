@@ -15,6 +15,7 @@ three purchases and the balance is at least 10 euros.
 - [Postman Requests](#postman-requests)
 - [Features](#features)
 - [Dependencies](#dependencies)
+- [Test Coverage Report](#test-coverage-report)
 - [Links](#links)
 
 ## Requirements
@@ -146,6 +147,11 @@ The Postman collection includes the following requests:
 - MapStruct
 
 For a full list of dependencies, refer to the `pom.xml` file.
+
+## Test Coverage Report
+
+Unit test coverage reports are available in the `testCoverageReport` directory. To view the coverage report, open
+the [index.html](./testCoverageReport/index.html) file in your web browser.
 
 ## Links
 
