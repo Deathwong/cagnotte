@@ -15,17 +15,16 @@ three purchases and the balance is at least 10 euros.
 - [Postman Requests](#postman-requests)
 - [Features](#features)
 - [Dependencies](#dependencies)
-- [Links](#links)
 
 ## Installation
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/cagnotte-microservice.git
+    git clone https://github.com/Deathwong/cagnotte.git
     ```
 2. Navigate to the project directory:
     ```sh
-    cd cagnotte-microservice
+    cd cagnotte
     ```
 3. Build the project using Maven:
     ```sh
@@ -35,7 +34,9 @@ three purchases and the balance is at least 10 euros.
     ```sh
     docker-compose up
     ```
-   The Docker Compose file can be found [here](./docker-compose.yml).
+   The Docker Compose file can be found [here](./docker-compose.yml). If you do not have Docker, you can download
+   it [here](https://www.docker.com/products/docker-desktop).
+
 5. Set up the PostgreSQL database by executing the provided SQL scripts:
     ```sql
     CREATE SEQUENCE client_sequence START 1 INCREMENT 1;
@@ -73,9 +74,9 @@ three purchases and the balance is at least 10 euros.
 ## Usage
 
 1. Start the application as described in the [Installation](#installation) section.
-2. Use the provided Postman collection ([Cagnotte.postman_collection.json](./Cagnotte.postman_collection.json)) to test
-   the API endpoints. Import the
-   collection into Postman to get started.
+2. Use the provided Postman collection to test the API endpoints. Import the collection into Postman to get started. The
+   Postman collection can be found [here](./Cagnotte.postman_collection.json). If you do not have Postman, you can
+   download it [here](https://www.postman.com/downloads/).
 
 ### Example Requests
 
@@ -94,10 +95,9 @@ three purchases and the balance is at least 10 euros.
 
 ## Configuration
 
-This project uses a PostgreSQL database. You can configure the database connection settings in
-the [application.properties](./src/main/resources/application.properties) file. The configuration is also available in
-the Docker Compose
-file ([docker-compose.yml](./docker-compose.yml)).
+This project uses a PostgreSQL database. You can find the database connection settings in
+the `application.properties` file. The configuration is also available in the Docker Compose
+file (`docker-compose.yml`).
 
 ## Postman Requests
 
@@ -127,11 +127,11 @@ The Postman collection includes the following requests:
 - Lombok
 - MapStruct
 
-For a full list of dependencies, refer to the [pom.xml](./pom.xml) file.
+For a full list of dependencies, refer to the `pom.xml` file.
 
 ## Links
 
-- [Download Postman](https://www.postman.com/downloads/)
 - [Download Docker](https://www.docker.com/products/docker-desktop)
+- [Download Postman](https://www.postman.com/downloads/)
 - [Spring Boot Documentation](https://spring.io/projects/spring-boot)
 - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
