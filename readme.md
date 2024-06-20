@@ -26,18 +26,15 @@ three purchases and the balance is at least 10 euros.
     ```sh
     cd cagnotte
     ```
-3. Build the project using Maven:
-    ```sh
-    mvn clean install
-    ```
-4. Start the application using Docker Compose:
+
+3. Start the database using Docker Compose:
     ```sh
     docker-compose up
     ```
    The Docker Compose file can be found [here](./docker-compose.yml). If you do not have Docker, you can download
    it [here](https://www.docker.com/products/docker-desktop).
 
-5. Set up the PostgreSQL database by executing the provided SQL scripts:
+4. Set up the PostgreSQL database by executing the provided SQL scripts:
     ```sql
     CREATE SEQUENCE client_sequence START 1 INCREMENT 1;
     CREATE SEQUENCE transaction_sequence START 1 INCREMENT 1;
@@ -69,6 +66,21 @@ three purchases and the balance is at least 10 euros.
     INSERT INTO public.transactions (id, client_id, amount, transaction_date) VALUES (nextval('transaction_sequence'::regclass), 2, 50, CURRENT_TIMESTAMP);
 
     INSERT INTO public.cagnotte (client_id, total_amount, transaction_count) VALUES (2, 5, 1);
+    INSERT INTO public.cagnotte (client_id, total_amount, transaction_count) VALUES (1, 50, 5);
+    ```
+
+You can use software like dBeaver or pgAdmin to connect to the dataBase.
+
+5. Build the project using Maven:
+
+    ```sh
+    mvn clean install
+    ```
+
+6. Start the application:
+
+    ```sh
+    mvn spring-boot:run
     ```
 
 ## Usage
@@ -121,7 +133,7 @@ The Postman collection includes the following requests:
 
 ## Dependencies
 
-- Spring Boot
+- Spring Boot (Java 21)
 - Spring Data JPA
 - PostgreSQL
 - Lombok
