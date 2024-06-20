@@ -1,0 +1,146 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > TransactionServiceImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.jefrido.cagnotte.service.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: TransactionServiceImpl (com.jefrido.cagnotte.service.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TransactionServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.jefrido.cagnotte.service.impl;
+&nbsp;
+&nbsp;import com.jefrido.cagnotte.domain.entity.Client;
+&nbsp;import com.jefrido.cagnotte.domain.entity.Transaction;
+&nbsp;import com.jefrido.cagnotte.exception.error.TransactionNotSaveException;
+&nbsp;import com.jefrido.cagnotte.repository.TransactionRepository;
+&nbsp;import com.jefrido.cagnotte.service.TransactionService;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import lombok.extern.log4j.Log4j2;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.math.BigDecimal;
+&nbsp;
+&nbsp;@Service
+<b class="fc">&nbsp;@Log4j2</b>
+&nbsp;@RequiredArgsConstructor
+&nbsp;public class TransactionServiceImpl implements TransactionService {
+&nbsp;
+&nbsp;    private final TransactionRepository transactionRepository;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Save a transaction for a client.
+&nbsp;     *
+&nbsp;     * @param client The client.
+&nbsp;     * @param amount The amount of the transaction.
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public void save(Client client, BigDecimal amount) {
+&nbsp;
+<b class="fc">&nbsp;        Transaction transaction = Transaction.builder()</b>
+<b class="fc">&nbsp;            .client(client)</b>
+<b class="fc">&nbsp;            .amount(amount)</b>
+<b class="fc">&nbsp;            .build();</b>
+&nbsp;
+&nbsp;        try {
+<b class="fc">&nbsp;            transactionRepository.save(transaction);</b>
+<b class="fc">&nbsp;        } catch (Exception e) {</b>
+<b class="fc">&nbsp;            log.error(&quot;Error while saving transaction for client: {}&quot;, client.getId());</b>
+<b class="fc">&nbsp;            throw new TransactionNotSaveException();</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-06-20 22:18</div>
+</div>
+</body>
+</html>

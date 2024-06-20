@@ -1,0 +1,170 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ClientController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.jefrido.cagnotte.controller</a>
+</div>
+
+<h1>Coverage Summary for Class: ClientController (com.jefrido.cagnotte.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ClientController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.jefrido.cagnotte.controller;
+&nbsp;
+&nbsp;import com.jefrido.cagnotte.domain.dto.CagnotteDto;
+&nbsp;import com.jefrido.cagnotte.service.CagnotteService;
+&nbsp;import com.jefrido.cagnotte.service.ClientService;
+&nbsp;import com.jefrido.cagnotte.utils.constant.AppConstants;
+&nbsp;import com.jefrido.cagnotte.utils.response.ApiResponse;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import lombok.extern.log4j.Log4j2;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.GetMapping;
+&nbsp;import org.springframework.web.bind.annotation.PathVariable;
+&nbsp;import org.springframework.web.bind.annotation.PostMapping;
+&nbsp;import org.springframework.web.bind.annotation.RequestMapping;
+&nbsp;import org.springframework.web.bind.annotation.RequestParam;
+&nbsp;import org.springframework.web.bind.annotation.RestController;
+&nbsp;
+&nbsp;import java.math.BigDecimal;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@RequestMapping(AppConstants.CLIENT_BASE_PATH)
+<b class="fc">&nbsp;@Log4j2</b>
+&nbsp;@RequiredArgsConstructor
+&nbsp;public class ClientController {
+&nbsp;
+&nbsp;    private final ClientService clientService;
+&nbsp;    private final CagnotteService cagnotteService;
+&nbsp;
+&nbsp;    @PostMapping(AppConstants.ADD_TRANSACTION_PATH)
+&nbsp;    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; addTransaction(@PathVariable Long clientId, @RequestParam BigDecimal amount) {
+&nbsp;
+<b class="fc">&nbsp;        log.info(&quot;Add transaction for client: {}&quot;, clientId);</b>
+&nbsp;
+<b class="fc">&nbsp;        clientService.addTransaction(clientId, amount);</b>
+&nbsp;
+&nbsp;        return ResponseEntity
+<b class="fc">&nbsp;            .ok()</b>
+<b class="fc">&nbsp;            .body(new ApiResponse&lt;&gt;());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(AppConstants.GET_CAGNOTTE_PATH)
+&nbsp;    public ResponseEntity&lt;ApiResponse&lt;CagnotteDto&gt;&gt; getCagnotte(@PathVariable Long clientId) {
+&nbsp;
+<b class="fc">&nbsp;        log.info(&quot;Get cagnotte for client: {}&quot;, clientId);</b>
+&nbsp;
+<b class="fc">&nbsp;        CagnotteDto cagnotte = cagnotteService.getCagnotte(clientId);</b>
+<b class="fc">&nbsp;        ApiResponse&lt;CagnotteDto&gt; response = new ApiResponse&lt;&gt;(cagnotte);</b>
+&nbsp;
+&nbsp;        return ResponseEntity
+<b class="fc">&nbsp;            .ok()</b>
+<b class="fc">&nbsp;            .body(response);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(AppConstants.IS_CAGNOTTE_AVAILABLE_PATH)
+&nbsp;    public ResponseEntity&lt;ApiResponse&lt;Object&gt;&gt; isCagnotteAvailable(@PathVariable Long clientId) {
+&nbsp;
+<b class="fc">&nbsp;        log.info(&quot;Check if cagnotte is available for client: {}&quot;, clientId);</b>
+&nbsp;
+<b class="fc">&nbsp;        String availableMessage = cagnotteService.isCagnotteAvailable(clientId);</b>
+<b class="fc">&nbsp;        ApiResponse&lt;Object&gt; response = new ApiResponse&lt;&gt;(availableMessage);</b>
+&nbsp;
+&nbsp;        return ResponseEntity
+<b class="fc">&nbsp;            .ok()</b>
+<b class="fc">&nbsp;            .body(response);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-06-20 22:18</div>
+</div>
+</body>
+</html>

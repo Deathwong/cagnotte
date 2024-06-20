@@ -1,0 +1,129 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CagnotteService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.jefrido.cagnotte.service</a>
+</div>
+
+<h1>Coverage Summary for Class: CagnotteService (com.jefrido.cagnotte.service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">CagnotteService$MockitoMock$WZ1qZtG1</td>
+  </tr>
+  <tr>
+    <td class="name">CagnotteService$MockitoMock$WZ1qZtG1$auxiliary$3kquFetD</td>
+  </tr>
+  <tr>
+    <td class="name">CagnotteService$MockitoMock$WZ1qZtG1$auxiliary$vYhJEGwh</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.jefrido.cagnotte.service;
+&nbsp;
+&nbsp;import com.jefrido.cagnotte.domain.dto.CagnotteDto;
+&nbsp;import com.jefrido.cagnotte.domain.entity.Cagnotte;
+&nbsp;import com.jefrido.cagnotte.domain.entity.Client;
+&nbsp;
+&nbsp;import java.math.BigDecimal;
+&nbsp;
+&nbsp;public interface CagnotteService {
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Save or update the cagnotte for a client.
+&nbsp;     *
+&nbsp;     * @param client The client.
+&nbsp;     * @param amount The amount of the transaction.
+&nbsp;     */
+&nbsp;    void saveForTransaction(Client client, BigDecimal amount);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Save the cagnotte for a client.
+&nbsp;     *
+&nbsp;     * @param client   The client.
+&nbsp;     * @param cagnotte The cagnotte to save.
+&nbsp;     * @return The {@link Cagnotte}.
+&nbsp;     */
+&nbsp;    Cagnotte save(Client client, Cagnotte cagnotte);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Retrieve the cagnotte for a client.
+&nbsp;     *
+&nbsp;     * @param client The client.
+&nbsp;     * @return The {@link Cagnotte}.
+&nbsp;     */
+&nbsp;    Cagnotte getCagnotte(Client client);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Retrieve the cagnotte for a client.
+&nbsp;     *
+&nbsp;     * @param clientId The client id.
+&nbsp;     * @return The {@link CagnotteDto} containing the cagnotte information.
+&nbsp;     */
+&nbsp;    CagnotteDto getCagnotte(Long clientId);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Check if the cagnotte is available for a client.
+&nbsp;     *
+&nbsp;     * @param clientId The client id.
+&nbsp;     * @return The message indicating if the cagnotte is available.
+&nbsp;     */
+&nbsp;    String isCagnotteAvailable(Long clientId);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-06-20 22:18</div>
+</div>
+</body>
+</html>
