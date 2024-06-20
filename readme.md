@@ -9,12 +9,21 @@ three purchases and the balance is at least 10 euros.
 
 ## Table of Contents
 
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Configuration](#configuration)
 - [Postman Requests](#postman-requests)
 - [Features](#features)
 - [Dependencies](#dependencies)
+- [Links](#links)
+
+## Requirements
+
+- [Maven](https://maven.apache.org/download.cgi) installed on your machine
+- [Java 21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) installed on your machine
+- [Docker](https://www.docker.com/products/docker-desktop) installed on your machine
+- [DBeaver](https://dbeaver.io/download/) or [pgAdmin](https://www.pgadmin.org/download/) for connecting to the
+  PostgreSQL database
 
 ## Installation
 
@@ -26,13 +35,13 @@ three purchases and the balance is at least 10 euros.
     ```sh
     cd cagnotte
     ```
-
 3. Start the database using Docker Compose:
     ```sh
     docker-compose up
     ```
    The Docker Compose file can be found [here](./docker-compose.yml). If you do not have Docker, you can download
    it [here](https://www.docker.com/products/docker-desktop).
+
 
 4. Set up the PostgreSQL database by executing the provided SQL scripts:
     ```sql
@@ -69,16 +78,19 @@ three purchases and the balance is at least 10 euros.
     INSERT INTO public.cagnotte (client_id, total_amount, transaction_count) VALUES (1, 50, 5);
     ```
 
-You can use software like dBeaver or pgAdmin to connect to the dataBase.
+   This project uses a PostgreSQL database. You can find the database connection settings in
+   the `application.properties` file. The configuration is also available in the Docker Compose
+   file (`docker-compose.yml`).
+
+   You can use software like [DBeaver](https://dbeaver.io/download/) or [pgAdmin](https://www.pgadmin.org/download/) to
+   connect to the database.
+
 
 5. Build the project using Maven:
-
     ```sh
     mvn clean install
     ```
-
 6. Start the application:
-
     ```sh
     mvn spring-boot:run
     ```
@@ -105,12 +117,6 @@ You can use software like dBeaver or pgAdmin to connect to the dataBase.
     GET http://localhost:8080/api/v1/client/1/cagnotte/available
     ```
 
-## Configuration
-
-This project uses a PostgreSQL database. You can find the database connection settings in
-the `application.properties` file. The configuration is also available in the Docker Compose
-file (`docker-compose.yml`).
-
 ## Postman Requests
 
 The Postman collection includes the following requests:
@@ -133,7 +139,7 @@ The Postman collection includes the following requests:
 
 ## Dependencies
 
-- Spring Boot (Java 21)
+- Spring Boot
 - Spring Data JPA
 - PostgreSQL
 - Lombok
@@ -143,7 +149,11 @@ For a full list of dependencies, refer to the `pom.xml` file.
 
 ## Links
 
+- [Download Maven](https://maven.apache.org/download.cgi)
+- [Download Java 21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
 - [Download Docker](https://www.docker.com/products/docker-desktop)
+- [Download DBeaver](https://dbeaver.io/download/)
+- [Download pgAdmin](https://www.pgadmin.org/download/)
 - [Download Postman](https://www.postman.com/downloads/)
 - [Spring Boot Documentation](https://spring.io/projects/spring-boot)
 - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
